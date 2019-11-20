@@ -1,0 +1,14 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "teamwork backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Victor Okpon",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
