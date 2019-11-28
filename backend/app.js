@@ -4,13 +4,15 @@ const app = express();
 
 const { Pool } = require('pg');
 
+const bcrypt = require('bcrypt');
+
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
 const pool = new Pool({
 
-  user: 'admin', // this is the db user credential
+  user: 'admin', // this is the db user
   host: 'localhost',
   database: 'teamwork_db',
   password: 'admin',
@@ -64,7 +66,6 @@ app.post('/auth/create-user', (req, res) => {
     },
   );
 });
-
 
 // **********************  ***********
 
