@@ -96,6 +96,21 @@ app.delete('/articles/:articleId', (req, res) => {
   });
 });
 
+// GET Employees can view selected article
+app.get('/articles/:articleId', async (req, res, next) => {
+  try {
+    const result = await pool.query('SELECT * FROM articles WHERE articleId=$1', [
+      req.params.articleId,
+    ]);
+    return res.json({
+      message: 'Article retrieved',
+      result,
+    });
+  } catch (err) {
+    return next(err);
+  }
+});
+
 // **********************  ***********
 
 app.use('/', (req, res, next) => {
