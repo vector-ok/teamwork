@@ -4,7 +4,6 @@ const app = express();
 
 const { Pool } = require('pg');
 
-const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
@@ -118,6 +117,24 @@ app.post('/articles', (req, res) => {
   });
 });
 
+// DELETE /gifs
+app.delete('/gifs/:id', (req, res) => {
+  pool.connect((err, client, done) => {
+    const query = 'DELETE FROM gifs WHERE id = $1';
+    client.query(query, [req.params.id], (error) => {
+      done();
+      if (!err) {
+        res.status(200).json({
+          status: 'success',
+          message: 'gif post successfully deleted',
+        });
+      } else {
+        res.status(400).json({ error });
+      }
+    });
+  });
+});
+
 // PATCH /articles/<articleid>
 app.patch('/articles/:articleId', (req, res) => {
   const data = {
@@ -162,24 +179,6 @@ app.delete('/articles/:articleId', (req, res) => {
   });
 });
 
-// DELETE /gifs
-app.delete('/gifs/:id', (req, res) => {
-  pool.connect((err, client, done) => {
-    const query = 'DELETE FROM gifs WHERE id = $1';
-    client.query(query, [req.params.id], (error) => {
-      done();
-      if (!err) {
-        res.status(200).json({
-          status: 'success',
-          message: 'gif post successfully deleted',
-        });
-      } else {
-        res.status(400).json({ error });
-      }
-    });
-  });
-});
-
 // GET /feed Employees can view all articles or gifs
 app.get('/feed', (req, res) => {
   pool.connect((err, client, done) => {
@@ -202,7 +201,6 @@ app.get('/feed', (req, res) => {
       }
     });
   });
-});
 
 // GET Employees can view selected article
 app.get('/articles/:articleId', async (req, res, next) => {
