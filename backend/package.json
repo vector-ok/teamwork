@@ -10,17 +10,12 @@
   "author": "Victor Okpon",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
-    "express": "^4.17.1",
-    "pg": "^7.14.0"
-=======
     "bcrypt": "^3.0.7",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "make-runnable": "^1.3.6",
     "pg": "^6.4.2",
     "request": "^2.88.0"
->>>>>>> db-setup
   },
   "devDependencies": {
     "eslint": "^6.6.0",
