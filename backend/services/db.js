@@ -1,3 +1,6 @@
+// run "npm run create" to create the tables
+// edit script (which table) to run in package.json
+
 const pg = require('pg');
 
 const config = {
@@ -20,9 +23,9 @@ const createTablesComments = () => {
   const commentsTable = `CREATE TABLE IF NOT EXISTS
       comments(
         id SERIAL PRIMARY KEY,
-        commentId SERIAL NOT NULL,
         userId INT NOT NULL,
-        articleId INT NOT NULL,
+        articleId INT,
+        gifId INT,
         comment VARCHAR(500) NOT NULL,
         dateCreated TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )`;
