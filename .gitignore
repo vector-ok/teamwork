@@ -59,3 +59,12 @@ typings/
 
 # next.js build output
 .next
+
+# config file for sensitive variables
+config.js
+
+# backup file
+backup.js
+
+# sample file
+index.js
