@@ -1,0 +1,32 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "teamwork backend",
+  "main": "server.js",
+  "scripts": {
+    "create": "node ./services/db createTablesComments",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Victor Okpon",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.7",
+    "body-parser": "^1.19.0",
+    "cloudinary": "^1.18.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "make-runnable": "^1.3.6",
+    "multer": "^1.4.2",
+    "pg": "^6.4.2",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "jasmine-node": "^3.0.0"
+  }
+}
